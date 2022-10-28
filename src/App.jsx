@@ -13,7 +13,7 @@ function App() {
     backgroundColor: dark ? '#282c33': '#EDF2F8',
   }
   return (
-    <div  className="App">
+    <div className="App">
       <Header mode={dark} toggler={toggleDark}/>
       <Home />
 
