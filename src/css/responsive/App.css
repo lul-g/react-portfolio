@@ -1,0 +1,54 @@
+/* import font */
+/* shared vals */
+/* DARK MODE */
+:root {
+    --bg_body: #0a111e;
+    --txt_h: #fff;
+    --txt_p: #ABB2BF;
+    --primary_clr: #0ff;
+    --secondary_clr: #00313A;    
+}
+body.light {
+    --bg_body: #282c33;
+    --txt_h: #fff;
+    --txt_p: #ABB2BF;
+    --primary_clr: #C778DD;
+    --secondary_clr: #00313A;    
+}
+/* LIGHT MODE */
+/* :root {
+    --bg_body: #EDF2F8;
+    --txt_h: #00313A;
+    --txt_p: #00313A;
+    --primary_clr: #C778DD;
+    --secondary_clr: #00313A; 
+} */
+/* css reset*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+.App {
+    height: 100vh;
+    background: var(--bg_body);
+}
+/* shared */
+.flex {
+    display: flex;
+}
+.absolute {
+    position: absolute;
+}
+.container {
+    padding: 0 10rem;
+}
+a {
+    text-decoration: none;
+    transition: color linear .4s;
+    color: var(--txt_p);
+}
+/* shared-end */
+

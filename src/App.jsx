@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import './App.css'
+import './css/mobile/App.css'
 import Header from './components/pages/Header.jsx'
 import Home from './components/pages/Home.jsx'
 function App() {
@@ -10,7 +10,7 @@ function App() {
     setDark(prev => !prev)
   }
   const light = {
-    backgroundColor: dark ? '#282c33': '#EDF2F8',
+    backgroundColor: dark ? '#0a111e': '#EDF2F8',
   }
   return (
     <div className="App">

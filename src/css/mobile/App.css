@@ -1,0 +1,35 @@
+:root {
+    --bg_body: #0a111e !important;
+    --txt_h: #fff !important;
+    --txt_p: #ABB2BF !important;
+    --primary_clr: #0ff !important;
+    --secondary_clr: #00313A !important;    
+}
+body.light {
+    --bg_body: #282c33 !important;
+    --txt_h: #fff !important;
+    --txt_p: #ABB2BF !important;
+    --primary_clr: #C778DD !important;
+    --secondary_clr: #00313A !important;    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+.App {
+    height: 100vh;
+    background: var(--bg_body);
+}
+/* shared */
+a {
+    text-decoration: none;
+    transition: color linear .4s;
+    color: var(--txt_p);
+}
+ul {
+    list-style: none;
+}
