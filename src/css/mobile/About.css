@@ -1,6 +1,8 @@
 #about {
-    margin: 0 auto;
-    background: brown;
-    color: white;
-    height: 100vh;
+  margin: 0 auto;
+  background: rgb(83, 11, 11);
+  color: white;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }

@@ -1,7 +1,8 @@
 #contact {
-    margin: 0 auto;
-    background: black;
-    color: white;
-    height: 100vh;
-
+  margin: 0 auto;
+  background: rgb(78, 17, 17);
+  color: white;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }

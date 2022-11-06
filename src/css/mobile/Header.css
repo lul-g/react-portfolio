@@ -1,250 +1,276 @@
 @import "./App.css";
 
 .header .nav {
-    display: none;
+  display: none;
 }
 .header {
-    background: var(--bg_body);
-    max-width: fit-content;
+  background: var(--bg_body);
+  max-width: fit-content;
 }
-.header .social {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    right: 2rem;
-    top: 35%;
-    transform: translatey(-35%);
-    font-size: 1.2rem;
+
+.header .line,
+.header .copy,
+.header .blank {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  right: 2rem;
+  top: 20%;
+  transform: translatey(-20%);
+  font-size: 1.2rem;
 }
+.header .line {
+  border-left: 2px solid var(--txt_p);
+  height: 7vh;
+  position: absolute;
+  top: 40%;
+  right: 2.7rem;
+  transform: translatey(-40%);
+}
+.header .blank {
+  top: 60%;
+  transform: translatey(-60%);
+}
+
 .header .social :nth-child(1):hover {
-    color: var(--header-icon-clr);
-    /* filter: var(--icon-glow); */
+  color: var(--header-icon-clr);
+  /* filter: var(--icon-glow); */
 }
 
-.header .social::before {
-    content: '';
-    position: relative;
-    width: 2px;
-    height: 20vh;
-    bottom: 0;
-    left: 0;
-    border-left: 2px solid var(--txt_p);
-}
 .header .logo {
-    position: fixed;
-    top: 2rem;
-    left: 2rem;
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
 
-    color: var(--txt_p);
-    font-size: 20px;
-    align-items: center;
-    transition: all .4s;
-    cursor: pointer;
+  color: var(--txt_p);
+  font-size: 20px;
+  align-items: center;
+  transition: all 0.4s;
+  cursor: pointer;
 }
 .header svg {
-    padding-right: .5rem;
-    justify-content: center;
-    fill: var(--txt_p);
-    transform: scale(3);
+  padding-right: 0.5rem;
+  justify-content: center;
+  fill: var(--txt_p);
+  transform: scale(3);
 }
 
 .header .toggler {
-    justify-content: center;
-    align-items: center;
-    display: grid;
-    place-items: center;
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
+  justify-content: center;
+  align-items: center;
+  display: grid;
+  place-items: center;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
 }
 .header .toggler input {
-    visibility: hidden;
+  visibility: hidden;
 }
 .header .toggler label::before {
-    display: inline-block;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font: var(--fa-font-solid);
-    font-size: 25px;
-    content: "\f186";
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font: var(--fa-font-solid);
+  font-size: 25px;
+  content: "\f186";
 
-    cursor: pointer;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    transition: transform 0.4s linear;
-    color: var(--txt_p);
+  cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  transition: transform 0.4s linear;
+  color: var(--txt_p);
 }
 
 .header .toggler input:checked ~ label::before {
-    transform: rotate(90deg);
-    content: "\f185";
-    /* animation: bounce 2s ease infinite; */
+  transform: rotate(90deg);
+  content: "\f185";
+  /* animation: bounce 2s ease infinite; */
 }
 
 .toggler label:hover::before {
-    color: var(--primary_clr);
-    filter: var(--icon-glow);
+  color: var(--primary_clr);
+  filter: var(--icon-glow);
 }
 .header .actve {
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translatex(-50%);    
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translatex(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
-    width: 80%;
-    line-height: 3rem;
-    box-shadow: 0 0 20px 3px var(--primary_clr);
-    border-radius: 50px;
+  width: 80%;
+  line-height: 3rem;
+  box-shadow: 0 0 20px 3px var(--primary_clr);
+  border-radius: 50px;
 
-    transition: all .5s cubic-bezier(0.85, 0.05, 0.18, 1.35);
-    transition-delay: 1s;
+  transition: all 0.5s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+  transition-delay: 1s;
 }
 .header .hidden {
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 
-    line-height: 3rem;
-    width: 80%;
-    border-radius: 50px;
+  line-height: 3rem;
+  width: 80%;
+  border-radius: 50px;
 
-    transition: all .5s var(--transition-curve-cubic);
-    transition-delay: .5s;
+  transition: all 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.5s;
 }
 /* nav hide/active animation for each element */
 .header .actve .fa-solid {
-    cursor: pointer;
+  cursor: pointer;
 }
 .header .actve .fa-solid:hover {
-    color: var(--header-icon-clr);
+  color: var(--header-icon-clr);
 }
 
-.header .hidden :nth-child(1) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: 0s;
-    opacity: 0;
-    transform: translate(110px ,50px);
+.header .hidden :nth-child(1) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0s;
+  opacity: 0;
+  transform: translate(110px, 50px);
 }
-.header .actve :nth-child(1) i{
-    cursor: pointer;
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: 0s;
-    opacity: 1;
-    transform: translate(0, 0);
+.header .actve :nth-child(1) i {
+  cursor: pointer;
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0s;
+  opacity: 1;
+  transform: translate(0, 0);
 }
-.header .hidden :nth-child(2) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .2s;
-    opacity: 0;
-    transform: translate(50px ,50px);
+.header .hidden :nth-child(2) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.2s;
+  opacity: 0;
+  transform: translate(50px, 50px);
 }
-.header .actve :nth-child(2) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .2s;
-    opacity: 1;
-    transform: translate(0, 0);
+.header .actve :nth-child(2) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.2s;
+  opacity: 1;
+  transform: translate(0, 0);
 }
-.header .hidden :nth-child(3) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .4s;
-    opacity: 0;
-    transform: translate(0 ,50px);
+.header .hidden :nth-child(3) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.4s;
+  opacity: 0;
+  transform: translate(0, 50px);
 }
-.header .actve :nth-child(3) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .4s;
-    opacity: 1;
-    transform: translate(0, 0);
+.header .actve :nth-child(3) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.4s;
+  opacity: 1;
+  transform: translate(0, 0);
 }
-.header .hidden :nth-child(4) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .2s;
-    opacity: 0;
-    transform: translate(-50px ,50px);
+.header .hidden :nth-child(4) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.2s;
+  opacity: 0;
+  transform: translate(-50px, 50px);
 }
-.header .actve :nth-child(4) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .6s;
-    opacity: 1;
-    transform: translate(0, 0);
+.header .actve :nth-child(4) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.6s;
+  opacity: 1;
+  transform: translate(0, 0);
 }
-.header .hidden :nth-child(5) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: 0s;
-    opacity: 0;
-    transform: translate(-100px ,50px);
+.header .hidden :nth-child(5) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0s;
+  opacity: 0;
+  transform: translate(-100px, 50px);
 }
-.header .actve :nth-child(5) i{
-    transition: opacity .5s var(--transition-curve-cubic), transform .5s var(--transition-curve-cubic);
-    transition-delay: .8s;
-    opacity: 1;
-    transform: translate(0, 0);
+.header .actve :nth-child(5) i {
+  transition: opacity 0.5s var(--transition-curve-cubic),
+    transform 0.5s var(--transition-curve-cubic);
+  transition-delay: 0.8s;
+  opacity: 1;
+  transform: translate(0, 0);
 }
 
-
-.header .nav-icons li .active .fa-solid{
-    /* padding: .5rem; */
-    /* box-shadow: inset 2px -2px 6px var(--primary_clr); */
-    color: var(--header-icon-clr);
-    border-radius: 50%;
-    animation: bounce 3s var(--transition-curve-cubic) infinite;
-
-    /* transition: box-shadow .5s ease; */
+.header .nav-icons li .active .fa-solid {
+  color: var(--header-icon-clr);
+  border-radius: 50%;
+  transition: all ease 0.3s;
 }
-
 
 .nav-toggle {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translatex(-50%);
-    cursor: pointer;
-
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translatex(-50%);
+  cursor: pointer;
+  width: min-content;
 }
 .nav-toggle input {
-    visibility: hidden;
+  visibility: hidden;
 }
 .nav-toggle label::before {
-    display: inline-block;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    font: var(--fa-font-solid);
-    font-size: 20px;
-    content: "\f5fd";
-    color: var(--txt_p);
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font: var(--fa-font-solid);
+  font-size: 20px;
+  content: "\f5fd";
+  color: var(--txt_p);
 
-    cursor: pointer;
+  cursor: pointer;
 
-    transition: all 0.5s linear;
-    animation: bounce 2s infinite cubic-bezier(0.280, 0.840, 0.420, 1);  
+  transition: all 0.5s linear;
+  animation: bounce 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 .nav-toggle input:checked ~ label::before {
-    content: "\f884";
+  content: "\f884";
 }
 
 @keyframes bounce {
-    /* Animation by: https://css-tricks.com/making-css-animations-feel-natural/ */
-    0%   { transform: scale(1,1)      translateY(0); }
-    10%  { transform: scale(1.1,.9)   translateY(0); }
-    30%  { transform: scale(.9,1.1)   translateY(-10px); }
-    50%  { transform: scale(1.05,.95) translateY(0); }
-    57%  { transform: scale(1,1)      translateY(0); }
-    64%  { transform: scale(1,1)      translateY(0); }
-    100% { transform: scale(1,1)      translateY(0); }
+  /* Animation by: https://css-tricks.com/making-css-animations-feel-natural/ */
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(1.1, 0.9) translateY(0);
+  }
+  30% {
+    transform: scale(0.9, 1.1) translateY(-10px);
+  }
+  50% {
+    transform: scale(1.05, 0.95) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(0);
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
 }
 
-
-/* TO-DO */
-/* 1. add webkit to transition */
-/* 2. use regular icons instead of solid */
+/* TODO */
+/*! 1. fix browser compatablity issues, esp for transitions */
+/*? 2. use regular icons instead of solid */
+/*! 3. clicking on not-nav-links/not-nav-toggle should hide nav*/
+/** 4. when nav is active and dark mode is toggled, the shadow takes .9s so it looks awkward*/

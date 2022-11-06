@@ -1,6 +1,8 @@
 #projects {
-    margin: 0 auto;
-    background: rgb(74, 5, 95);
-    color: white;
-    height: 100vh;
+  margin: 0 auto;
+  background: rgb(61, 4, 78);
+  color: white;
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
