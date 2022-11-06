@@ -3,39 +3,33 @@ import logo from '/svg/Logo.svg'
 import '../../css/mobile/Header.css'
 import '../../css/mobile/App.css'
 import { useState } from 'react';
+
+// https://www.youtube.com/watch?v=QzW03hyw_bU   ---smooth scrol with react scroll since hash method did not work
+import { Link as NavLink} from "react-scroll"
+
+// https://www.youtube.com/watch?v=uFSu6tgYKRY&t=354s   --> detailed explanation on router dom and recent
+// https://www.youtube.com/watch?v=ZpBuaYkW09k  --> simple tutorial on router dom - outdated but simple
+// import { NavLink } from 'react-router-dom';
+
+// https://www.freecodecamp.org/news/how-to-implement-vertical-scrolling-in-react-using-react-router-hash-link/ ---adding smooth scroll with react-hash
+// import { HashLink as NavLink} from 'react-router-hash-link';
 // import '../../css/responsive/Header.css'
 
 export default function Header(props) {
+    // set color variables in css based on theme 
     const root = document.querySelector(':root');
     props.mode ? root.style.setProperty('--bg_body', '#0a111e') : root.style.setProperty('--bg_body', '#EDF2F8' )
     props.mode ? root.style.setProperty('--txt_h', '#fff') : root.style.setProperty('--txt_h', '#00313A')
-    props.mode ? root.style.setProperty('--txt_p', '#ABB2BF') : root.style.setProperty('--txt_p', '#ABB2BF')
-    props.mode ? root.style.setProperty('--primary_clr', '#C778DD') : root.style.setProperty('--primary_clr', '#00313A')
-    React.useEffect(() => {
-        let links = document.querySelectorAll('.links')
-        const list = document.querySelector('li')
-        let active = list.getAttribute('data-active')
-        for(let i = 0; i < links.length; i++) {
-            links[i].addEventListener('click', setActive)
-        }
-    }, [])
-    function setActive(e) {
-        //do sth
-        e.preventDefault()
-        console.log('hi')
-    }
+    props.mode ? root.style.setProperty('--txt_p', '#ABB2BF') : root.style.setProperty('--txt_p', 'black')
+    props.mode ? root.style.setProperty('--primary_clr', '#0ff') : root.style.setProperty('--primary_clr', '#00313A')
 
-    const [nav_is_active, set_nav_is_active] = useState("false"); 
-    function displayNav(e) {
-        e.preventDefault()
-    }
-    //get val of check-nav
-    //add/remove class based on it
-   
+    const [nav_is_active, set_nav_is_active] = useState(false); 
+
        return(
        <div className="header container flex">
             <div className="social flex absolute">
                 <div className="line"></div>
+                <a href=""><i className="fa-brands fa-github"></i></a>
                 <a href=""><i className="fa-brands fa-discord"></i></a>
                 <a href=""><i className="fa-brands fa-telegram"></i></a>
                 <a href=""><i className="fa-brands fa-whatsapp"></i></a>
@@ -57,9 +51,9 @@ export default function Header(props) {
                     <label htmlFor="check_" onClick={props.toggler}></label>
             </div>
             <ul className="nav flex">
-                <li data-active='true'><a className='links' href="">home</a></li>
-                <li><a className='links' href="">about</a></li>
-                <li><a className='links' href="">projects</a></li>
+                <li><a className='links' href="#home">home</a></li>
+                <li><a className='links' href="#about">about</a></li>
+                <li><a className='links' href="#projects">projects</a></li>
                 <div className="toggler flex">
                     <input 
                         type="checkbox" 
@@ -68,16 +62,36 @@ export default function Header(props) {
                     />
                     <label htmlFor="check" onClick={props.toggler}></label>
                 </div>
-                <li><a className='links' href="">qualifications</a></li>
-                <li><a className='links' href="">contact</a></li>
+                <li><a className='links' href="#qual">qualifications</a></li>
+                <li><a className='links' href="#contact">contact</a></li>
                 <li><a className='links' href="">github</a></li>
             </ul>
-            <ul className={!nav_is_active ? "nav-icons active" : "nav-icons hidden"}>
-                <li><a data-active='active' href=""><i   className="fa-solid fa-house"></i></a></li>
-                <li><a href=""><i className="fa-solid fa-user"></i></a></li>
-                <li><a href=""><i className="fa-solid fa-diagram-project"></i></a></li>
-                <li><a href=""><i className="fa-solid fa-briefcase"></i></a></li>
-                <li><a href=""><i className="fa-solid fa-paper-plane"></i></a></li>
+            <ul className={nav_is_active ? "nav-icons actve" : "nav-icons hidden"}>
+                <li><NavLink 
+                    className={({isActive}) => isActive ? 'links active_page' : 'links'} 
+                    to="home" spy={true} smooth={true} offset={0} duration={0}>
+                    <i className="fa-solid fa-house"></i>
+                </NavLink></li>
+                <li><NavLink 
+                    className={({isActive}) => isActive ? 'links active_page' : 'links'}  
+                    to="about" spy={true} smooth={true} offset={0} duration={0}>
+                    <i className="fa-solid fa-user"></i>
+                </NavLink></li>
+                <li><NavLink 
+                    className={({isActive}) => isActive ? 'links active_page' : 'links'}  
+                    to="projects" spy={true} smooth={true} offset={0} duration={0}>
+                    <i className="fa-solid fa-diagram-project"></i>
+                </NavLink></li>
+                <li><NavLink 
+                    className={({isActive}) => isActive ? 'links active_page' : 'links'}  
+                    to="qual" spy={true} smooth={true} offset={0} duration={0}>
+                    <i className="fa-solid fa-briefcase"></i>
+                </NavLink></li>
+                <li><NavLink 
+                    className={({isActive}) => isActive ? 'links active_page' : 'links'}  
+                    to="contact" spy={true} smooth={true} offset={0} duration={0}>
+                    <i className="fa-solid fa-paper-plane"></i>
+                </NavLink></li>
             </ul>
             <div className="nav-toggle flex">
                 <input 
@@ -90,5 +104,6 @@ export default function Header(props) {
                 htmlFor="check-nav"></label>
             </div>
        </div>
+       
     )
 }
