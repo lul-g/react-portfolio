@@ -5,7 +5,7 @@
 }
 .header {
   background: var(--bg_body);
-  max-width: fit-content;
+  margin: 0 auto;
 }
 
 .header .line,
@@ -18,7 +18,7 @@
   align-items: center;
   gap: 1rem;
   right: 2rem;
-  top: 20%;
+  top: 25%;
   transform: translatey(-20%);
   font-size: 1.2rem;
 }
@@ -26,20 +26,23 @@
   border-left: 2px solid var(--txt_p);
   height: 7vh;
   position: absolute;
-  top: 40%;
+  top: 45%;
   right: 2.7rem;
-  transform: translatey(-40%);
+  transform: translatey(-45%);
 }
 .header .blank {
-  top: 60%;
-  transform: translatey(-60%);
+  top: 65%;
+  transform: translatey(-65%);
 }
 
-.header .social :nth-child(1):hover {
+.header .social :not(:first-child) > *:hover {
+  transition: transform 0.1s linear;
+  transform: scale(1.17);
+  /* animation: hithere 1.5s 1 ease; */
+
   color: var(--header-icon-clr);
-  /* filter: var(--icon-glow); */
+  /* filter: blur(1px); */
 }
-
 .header .logo {
   position: fixed;
   top: 2rem;
@@ -51,7 +54,7 @@
   transition: all 0.4s;
   cursor: pointer;
 }
-.header svg {
+.header .logo svg {
   padding-right: 0.5rem;
   justify-content: center;
   fill: var(--txt_p);
@@ -95,6 +98,7 @@
 .toggler label:hover::before {
   color: var(--primary_clr);
   filter: var(--icon-glow);
+  animation: hithere 1.5s infinite ease;
 }
 .header .actve {
   position: fixed;
@@ -106,7 +110,8 @@
   justify-content: space-around;
 
   width: 80%;
-  line-height: 3rem;
+  max-width: 300px;
+  height: 3rem;
   box-shadow: 0 0 20px 3px var(--primary_clr);
   border-radius: 50px;
 
@@ -124,6 +129,7 @@
 
   line-height: 3rem;
   width: 80%;
+  max-width: 300px;
   border-radius: 50px;
 
   transition: all 0.5s var(--transition-curve-cubic);
@@ -135,9 +141,11 @@
 }
 .header .actve .fa-solid:hover {
   color: var(--header-icon-clr);
+  animation: hithere 1s infinite ease;
 }
 
 .header .hidden :nth-child(1) i {
+  color: white !important;
   transition: opacity 0.5s var(--transition-curve-cubic),
     transform 0.5s var(--transition-curve-cubic);
   transition-delay: 0s;
@@ -238,6 +246,8 @@
   cursor: pointer;
 
   transition: all 0.5s linear;
+}
+.nav-toggle label:hover::before {
   animation: bounce 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
 }
 .nav-toggle input:checked ~ label::before {
@@ -266,6 +276,24 @@
   }
   100% {
     transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes hithere {
+  30% {
+    transform: scale(1.2);
+  }
+  40%,
+  60% {
+    transform: rotate(-20deg) scale(1.2);
+  }
+  50% {
+    transform: rotate(20deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 

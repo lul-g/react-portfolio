@@ -1,5 +1,4 @@
 import { React, useState } from "react";
-import logo from "/svg/Logo.svg";
 import "../../css/mobile/Header.css";
 import "../../css/mobile/App.css";
 
@@ -37,13 +36,26 @@ export default function Header(props) {
       behavior: "smooth",
     });
   };
+  function copy(c) {
+    let container = document.querySelector(`.copy ${c}`);
+    let before = window.getComputedStyle(container, "::before");
+    navigator.clipboard.writeText(before.content);
+  }
+
   return (
-    <div className="header container flex">
-      <div className="social flex absolute">
+    <div className="header">
+      <div className="social">
         <div className="line"></div>
 
         <div className="copy">
-          <a href="">
+          <a
+            id="copy1"
+            href=""
+            onClick={() => {
+              event.preventDefault();
+              copy("#copy1");
+            }}
+          >
             <i className="fa-brands fa-discord"></i>
           </a>
           <a href="">
